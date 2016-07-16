@@ -34,6 +34,8 @@ services:
 ### Nginx Server Container ##################################
     nginx:
         build: ./nginx
+        volumes_from:
+            - volumes_source
         ports:
             - "80:80"
             - "443:443"
