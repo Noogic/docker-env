@@ -1,5 +1,5 @@
 FROM debian:jessie
 
-WORKDIR /var/www
+WORKDIR /var/www/app
 
 CMD ["true"]
