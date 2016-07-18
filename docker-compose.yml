@@ -25,8 +25,7 @@ services:
 
 ### Workspace Utilities Container ###########################
     workspace:
-        build:
-            context: ./workspace
+        build: ./workspace
         volumes_from:
             - volumes_source
         tty: true
@@ -42,6 +41,7 @@ services:
             - "443:443"
         links:
             - php-fpm
+            - node-app
 
 
 ### PHP-FPM Container #######################################
@@ -53,5 +53,16 @@ services:
             - volumes_source
         expose:
             - "9000"
+        links:
+            - workspace
+
+
+### Node Service Container ##################################
+    node-app:
+        build: ./node
+        volumes_from:
+            - volumes_source
+        expose:
+            - "3000"
         links:
             - workspace
