@@ -3,7 +3,7 @@ FROM nginx:latest
 ADD nginx.conf /etc/nginx/
 ADD app.conf /etc/nginx/conf.d/
 
-RUN echo "upstream php-upstream { server php-fpm:9000; }" > /etc/nginx/conf.d/upstream.conf
+ADD upstream.conf /etc/nginx/conf.d/upstream.conf
 
 RUN usermod -u 1000 www-data
 
