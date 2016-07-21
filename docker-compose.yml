@@ -15,13 +15,7 @@ services:
     volumes_data:
         build: ./volumes/data
         volumes:
-            - /var/lib/mysql:/var/lib/mysql
-            - /var/lib/postgres:/var/lib/postgres
-            - /var/lib/mariadb:/var/lib/mariadb
-            - /var/lib/memcached:/var/lib/memcached
-            - /var/lib/redis:/data
-            - /var/lib/neo4j:/var/lib/neo4j/data
-            - /var/lib/mongo:/data/db
+            - /.db/mysql:/var/lib/mysql
 
 
 ### Workspace Utilities Container ###########################
@@ -67,6 +61,20 @@ services:
             - "3000"
         links:
             - workspace
+
+
+### MySQL Container #########################################
+    mysql:
+        build: ./mysql
+        volumes_from:
+            - volumes_data
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: app
+            MYSQL_USER: app
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: root
 
 
 
