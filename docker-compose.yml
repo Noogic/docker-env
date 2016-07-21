@@ -8,6 +8,7 @@ services:
         volumes:
             - ../:/var/www/app
             - ./volumes/log/nginx:/var/log/nginx
+            - node_modules:/var/www/app/node_modules
 
 
 ### Databases Data Container ################################
@@ -66,3 +67,8 @@ services:
             - "3000"
         links:
             - workspace
+
+
+
+volumes:
+    node_modules:
