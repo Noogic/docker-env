@@ -65,9 +65,9 @@ services:
             - workspace
 
 
-### MySQL Container #########################################
-    mysql:
-        build: ./mysql
+### MariaDB Container #######################################
+    mariadb:
+        build: ./mariadb
         volumes_from:
             - volumes_data
         ports:
