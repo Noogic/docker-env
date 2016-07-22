@@ -24,7 +24,7 @@ services:
         volumes_from:
             - volumes_source
         links:
-            - mysql
+            - mariadb
         tty: true
 
 
