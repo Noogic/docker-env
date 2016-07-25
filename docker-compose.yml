@@ -15,7 +15,7 @@ services:
     volumes_data:
         build: ./volumes/data
         volumes:
-            - /.db/mariadb:/var/lib/mariadb
+            - /.db/mariadb:/var/lib/mysql
 
 
 ### Workspace Utilities Container ###########################
