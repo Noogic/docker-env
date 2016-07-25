@@ -77,7 +77,8 @@ RUN . ~/.nvm/nvm.sh \
     && nvm install stable \
     && nvm use stable \
     && nvm alias stable \
-    && npm install -g gulp bower
+    && npm install -g gulp bower \
+    && npm install -g nodemon
 
 # Source the bash
 RUN . ~/.bashrc
