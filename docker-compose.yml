@@ -79,6 +79,22 @@ services:
             MYSQL_ROOT_PASSWORD: root
 
 
+### USER - twitter_reader.js ################################
+    twitter_reader.js:
+        build: ./node
+        command: ["nodemon", "-L", "app/services/twitter_reader.js"]
+        volumes_from:
+            - volumes_source
+
+
+### USER - twitter_publisher.js #############################
+    twitter_publisher.js:
+        build: ./node
+        command: ["nodemon", "-L", "app/services/twitter_publisher.js"]
+        volumes_from:
+            - volumes_source
+
+
 
 volumes:
     node_modules:
